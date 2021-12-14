@@ -1,0 +1,10 @@
+[
+    {
+        "slug": 1,
+        "name":"Dashboard"
+    },
+    {
+        "slug": 2,
+        "name":"Asset"
+    }
+]
