@@ -1,18 +1,9 @@
 <template>
   <div class="fixed top-0 w-full ">
         <nav class="h-14 flex bg-white items-center justify-between p-4 z-40">
-            <label for="show_more" style="font-family: 'Baloo Tamma 2'" class="select-none text-xl mx-1transition-all cursor-pointer h-10 border px-4 pt-2 pb-1 border-indigo-100 rounded-full lg:order-2 mx-1 flex flex-row items-center">
-                <div v-if="$fetchState.pending" class="flex flex-row items-center">
-                    <img v-if="$fetchState.pending" class="animate-spin h-8 pb-1" src="https://i.ibb.co/RSrrjHc/logo-chronus-favicon.png" alt="logo-chronus-favicon" border="0">
-                </div>
-                <div v-else class="flex flex-row items-center">
-                    <img  class="h-8 pb-1" src="https://i.ibb.co/RSrrjHc/logo-chronus-favicon.png" alt="logo-chronus-favicon" border="0">
-                    <p class="pl-3">{{ this.api_menu_obj.title_lc }}</p>
-                </div>
-            </label>
             <div class="navbar-menu hidden lg:order-1 lg:block w-full lg:w-2/5">
                 <ul>
-                    <li v-for="menu of api_submenu_arr" :key="menu.href" class="block lg:inline-block mt-4 lg:mt-0 mr-10 text-blue-900 hover:text-indigo-600">
+                    <li v-for="menu of api_submenu_arr" :key="menu.id" class="block lg:inline-block mt-4 lg:mt-0 mr-10 text-blue-900 hover:text-indigo-600">
                         <NuxtLink :to="{ path: menu.href }"> 
                             <p>{{ menu.title }}</p>
                         </NuxtLink>
@@ -35,11 +26,22 @@
                     </svg>
                 </button>
             </div>
+            <label style="font-family: 'Baloo Tamma 2'" class="select-none text-xl mx-1 transition-all cursor-pointer h-10 border px-4 pt-2 pb-1 border-indigo-100 rounded-full lg:order-2 mx-1 flex flex-row items-center">
+              <div v-if="$fetchState.pending" class="flex flex-row items-center">
+                <img v-if="$fetchState.pending" class="animate-spin h-8 pb-1" src="https://i.ibb.co/RSrrjHc/logo-chronus-favicon.png" alt="logo-chronus-favicon" border="0">
+              </div>
+              <div v-else class="flex flex-row items-center">
+                <img  class="h-8 pb-1" src="https://i.ibb.co/RSrrjHc/logo-chronus-favicon.png" alt="logo-chronus-favicon" border="0">
+                <p class="pl-3">{{ this.api_menu_obj.title_lc }}</p>
+              </div>
+              <input type="checkbox" name="show_more" id="show_more" class="hidden peer"/>
+              <div class="transition duration-300 ease-out fixed inset-0 opacity-0 invisible peer-checked:visible mt-14 min-h-screen w-full bg-black peer-checked:opacity-50 -z-50">
+              </div>
+              <div class="transition duration-300 ease-out fixed inset-0 opacity-0 invisible peer-checked:visible peer-checked:opacity-100">
+                <GeneralNavMenu />
+              </div>
+            </label>
         </nav>
-        <input type="checkbox" name="show_more" id="show_more" class="hidden peer" />
-        <div class="transition duration-300 ease-out opacity-0 peer-checked:opacity-100 ">
-            <GeneralNavMenu />
-        </div>
     </div>
 </template>
 <script>
