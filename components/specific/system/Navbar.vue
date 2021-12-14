@@ -63,7 +63,7 @@
     },
     async fetch() {
         var apps_menu = await fetch('https://opensheet.vercel.app/1S5Sc9J15Rdugl37nkPQmdXhAuHqBjtTyfLZGhu-qmRs/navbar_menu').then(res => res.json())
-        this.api_menu_obj = apps_menu.filter(function(d) { return d.title_lc == "dashboard" } )[0]
+        this.api_menu_obj = apps_menu.filter(function(d) { return d.title_lc == "system" } )[0]
         const navbar_menu_id = this.api_menu_obj.id
         var apps_submenu = await fetch('https://opensheet.vercel.app/1S5Sc9J15Rdugl37nkPQmdXhAuHqBjtTyfLZGhu-qmRs/navbar_submenu').then(res => res.json())
         this.api_submenu_arr = apps_submenu.filter(function(a) { return a.navbar_menu_id == navbar_menu_id })
