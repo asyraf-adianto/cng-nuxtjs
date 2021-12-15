@@ -26,12 +26,12 @@
                     </svg>
                 </button>
             </div>
-            <label style="font-family: 'Baloo Tamma 2'" class="select-none text-xl mx-1 transition-all cursor-pointer h-10 border px-4 pt-2 pb-1 border-indigo-100 rounded-full lg:order-2 mx-1 flex flex-row items-center">
+            <label style="font-family: 'Baloo Tamma 2'" class="select-none text-xl mx-1 cursor-pointer h-10 border px-4 px-1 border-indigo-100 rounded-full lg:order-2 mx-1 flex flex-row items-center">
               <div v-if="$fetchState.pending" class="flex flex-row items-center">
-                <img v-if="$fetchState.pending" class="animate-spin h-8 pb-1" src="https://i.ibb.co/RSrrjHc/logo-chronus-favicon.png" alt="logo-chronus-favicon" border="0">
+                <img v-if="$fetchState.pending" class="inset-0 animate-spin h-8 items-center" src="https://www.svgrepo.com/show/381093/ball-game-poke-sport-sports.svg" alt="logo-chronus-favicon" border="0">
               </div>
               <div v-else class="flex flex-row items-center">
-                <img  class="h-8 pb-1" src="https://i.ibb.co/RSrrjHc/logo-chronus-favicon.png" alt="logo-chronus-favicon" border="0">
+                <img  class="inset-0 h-8 items-center" src="https://www.svgrepo.com/show/381093/ball-game-poke-sport-sports.svg" alt="logo-chronus-favicon" border="0">
                 <p class="pl-3">{{ this.api_menu_obj.title_lc }}</p>
               </div>
               <input type="checkbox" name="show_more" id="show_more" class="hidden peer"/>
